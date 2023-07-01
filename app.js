@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
     const form = document.querySelector('form');
     const formUpdateBtn = document.querySelector('form button');
     const buttonWrapper = document.querySelector('section');
-    const codeWrapperEl = document.querySelector('code');
+    const codeWrapperEl = document.getElementById('code');
     const buttonStyleEl = document.getElementById('style-select');
     const buttonShapeEl = document.querySelector('fieldset');
     const buttons = document.querySelectorAll('.btn');
@@ -56,6 +56,23 @@ window.addEventListener('load', () => {
         alert('Styles copied');
       }
     });
+
+    function printCss(el) {
+      if(codeWrapperEl) {
+        var sheets = document.styleSheets, ret = [];
+        el.matches = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector 
+            || el.msMatchesSelector || el.oMatchesSelector;
+        for (var i in sheets) {
+            var rules = sheets[i].cssRules;
+            for (var r in rules) {
+                if (el.matches(rules[r].selectorText)) {
+                    ret.push(rules[r].cssText);
+                }
+            }
+        }
+        codeWrapperEl.textContent = ret;
+      }
+    }
 });
 
 function calcHSLValues(picker, colourType) {
@@ -114,19 +131,4 @@ function hexToHSL(H) {
     l = +(l * 100).toFixed(1);
   
     return "hsl(" + h + "," + s + "%," + l + "%)";
-  }
-
-  function printCss(el) {
-      var sheets = document.styleSheets, ret = [];
-      el.matches = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector 
-          || el.msMatchesSelector || el.oMatchesSelector;
-      for (var i in sheets) {
-          var rules = sheets[i].cssRules || sheets[i].cssRules;
-          for (var r in rules) {
-              if (el.matches(rules[r].selectorText)) {
-                  ret.push(rules[r].cssText);
-              }
-          }
-      }
-      codeWrapperEl.textContent = ret;
   }

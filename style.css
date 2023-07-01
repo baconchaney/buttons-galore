@@ -44,9 +44,12 @@ a {
     text-decoration: none;
 }
 
+.codeWrapper {
+    position:relative;
+}
+
 code {
     display:block;
-    position:relative;
     background: #eee;
     border: solid thin #ccc;
     padding: 1rem;
