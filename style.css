@@ -1,0 +1,568 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    --body-font: 'Poppins', sans-serif;
+    --shadow-colour: hsla(0, 0%, 40%, 0.4);
+}
+
+body {
+    font-size: 12pt;
+    font-family: var(--body-font);
+}
+
+main {
+    max-width: 50rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:2rem 0;
+    gap: 1rem;
+}
+
+.flex-align-end {
+    align-items: flex-end;
+}
+
+.title {
+    text-align: center;
+}
+
+button, 
+a {
+    transition: all ease .3s;
+    opacity: .75;
+}
+
+a {
+    text-decoration: none;
+}
+
+code {
+    display:block;
+    position:relative;
+    background: #eee;
+    border: solid thin #ccc;
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    padding-bottom:.5rem;
+}
+
+fieldset {
+    margin-bottom:.5rem;
+}
+
+button {
+    display:inline-block;
+    font-family: var(--body-font);
+    outline: none;
+    border: 0;
+    background: unset;
+    padding:.5rem 1rem;
+    line-height: 1;
+    font-size: 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+button:focus {
+   outline: var(--colour);
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+#copy {
+    position:absolute;
+    top:0;
+    right:0;
+    padding:.5rem;
+    font-size:0.875rem;
+    background:#ddd;
+    font-weight: bold;
+    border-radius:.25rem;
+}
+
+.primary {
+    --_colour: hsl(var(--positive-hue), var(--positive-sat), var(--positive-light));
+    --colour: var(--_colour, var(--positive-colour));
+    --_highlight-colour: hsl(var(--positive-hue), var(--positive-sat), var(--positive-highlight));
+    --_shadow-colour: hsl(var(--positive-hue), var(--positive-sat), var(--positive-shadow));
+    background: var(--colour);
+    border:solid 2px var(--colour);
+    color:#fff;
+}
+
+.secondary {
+    --_colour: hsl(var(--positive-hue), var(--positive-sat), var(--positive-light));
+    --colour: var(--_colour, var(--positive-colour));
+    --_highlight-colour: hsl(var(--positive-hue), var(--positive-sat), var(--positive-highlight));
+    --_shadow-colour: hsl(var(--positive-hue), var(--positive-sat), var(--positive-shadow));
+    background: transparent;
+    border: solid 2px var(--colour);
+    color: var(--colour);
+}
+
+.tertiary {
+    --_colour: hsl(var(--positive-hue), var(--positive-sat), var(--positive-light));
+    --colour: var(--_colour, var(--positive-colour));
+    --_highlight-colour: hsl(var(--positive-hue), var(--positive-sat), var(--positive-highlight));
+    --_shadow-colour: hsl(var(--positive-hue), var(--positive-sat), var(--positive-shadow));
+    color: var(--colour);
+}
+
+.neutral {
+    --_colour: hsl(var(--neutral-hue), var(--neutral-sat), var(--neutral-light));
+    --colour: var(--_colour, var(--neutral-colour));
+    --_highlight-colour: hsl(var(--neutral-hue), var(--neutral-sat), var(--neutral-highlight));
+    --_shadow-colour: hsl(var(--neutral-hue), var(--neutral-sat), var(--neutral-shadow));
+    background:transparent;
+    border: solid 2px var(--colour);
+    color: var(--colour);
+}
+
+.negative {
+    --_colour: hsl(var(--negative-hue), var(--negative-sat), var(--negative-light));
+    --colour: var(--_colour, var(--negative-colour));
+    --_highlight-colour: hsl(var(--negative-hue), var(--negative-sat), var(--negative-highlight));
+    --_shadow-colour: hsl(var(--negative-hue), var(--negative-sat), var(--negative-shadow));
+    background: var(--colour);
+    border:solid 2px var(--colour);
+    color:#fff;
+}
+
+.rounded button {
+    border-radius: .25rem;
+}
+
+button:after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: bold;
+}
+
+.pill button {
+    border-radius: 2rem;
+}
+
+.style-2 button {
+    box-shadow: 0 0 1rem .5rem var(--shadow-colour);
+}
+
+.style-2 button:hover {
+    box-shadow: 0 0 1rem 0rem var(--shadow-colour);
+}
+
+.style-3 button {
+    border-color: #666;
+    border-bottom-width:.5rem;
+    border-color: var(--_shadow-colour, var(--shadow-colour));
+    margin-top:2px;
+}
+
+.style-3 button:active {
+    border-color: var(--colour);
+    border-bottom-width:2px;
+    margin-top:.5rem;
+}
+
+.style-4 button {
+    border-color: var(--colour);
+    outline: solid 2px var(--colour);
+    outline-offset: 2px;
+}
+
+.style-4 button:hover {
+    border-color: var(--colour);
+    outline-offset: -2px;
+}
+
+.style-5 button {
+    position:relative;
+}
+
+.style-5 button:after {
+    content: "\f054";
+    padding-left:.5rem;
+}
+
+.style-6 button {
+    position:relative;
+    padding-inline: 2rem;
+}
+
+.style-6 button:hover,
+.style-6 button:focus {
+    padding-left:1rem;
+    padding-right: 3rem;
+}
+
+.style-6 button:after {
+    content: "\f054";
+    padding:.5rem;
+    position: absolute;
+    border-radius: inherit;
+    width:2rem;
+    right: 0;
+    top: 0;
+    box-sizing: border-box;
+    transform:translateX(1rem);
+    opacity: 0;
+    transition: all ease .3s;
+    z-index: 2;
+    pointer-events: none;
+    background:hsla(0, 100%, 100%, .2);
+}
+
+.style-6 button:hover:after,
+.style-6 button:focus:after {
+    transform:translateX(0);
+    opacity: 1;
+}
+
+.style-7 button {
+    position:relative;
+    background:none;
+    border:none;
+    color:var(--_colour);
+    padding-right:2.5rem;
+}
+
+.style-7 button:after {
+    content: "\f054";
+    padding:.5rem .7rem;
+    position: absolute;
+    border-radius: inherit;
+    width:calc(2rem + 4px);
+    right: -2px;
+    top: -2px;
+    box-sizing: border-box;
+    transition: all ease .3s;
+    background: var(--_colour);
+    color:#fff;
+    border: solid 2px var(--_colour);
+    text-align: right;
+    z-index: -1;
+}
+
+.style-7 button:hover,
+.style-7 button:focus
+ {
+    color:#fff;
+}
+
+.style-7 button.secondary:after {
+    background:transparent;
+    color: var(--_colour);
+}
+
+.style-7 button.secondary:hover,
+.style-7 button.secondary:focus {
+    color: var(--_colour);
+}
+
+.style-7 button.tertiary {
+    padding-right:2rem;
+}
+
+.style-7 button.tertiary:after {
+    background:transparent;
+    color: var(--_colour);
+    border:none;
+    top:0;
+    right:0;
+}
+
+.style-7 button.tertiary:hover {
+    color: var(--_colour);
+}
+.style-7 button.tertiary:focus {
+    outline: solid 2px var(--_colour);
+    color: var(--_colour);
+}
+
+.style-7 button:hover:after,
+.style-7 button:focus:after {
+    width: 100%;
+}
+
+.style-8 button {
+    position:relative;
+    overflow: visible;
+}
+
+.style-8 button:before,
+.style-8 button:after {
+    content: " ";
+    position: absolute;
+    height:calc(2rem + 4px);
+    width: calc(2rem + 4px);
+    border-radius: inherit;
+    border-width: .25rem;
+    border-style: solid;
+    border-color: transparent;
+    opacity: 0;
+    transition:all ease .3s;
+}
+
+.style-8 button:before {
+    top: 0;
+    left: 0;
+    border-left-color: var(--_colour);
+    border-top-color: var(--_colour);
+}
+
+.style-8 button:after {
+    bottom: 0;
+    right: 0;
+    border-bottom-color: var(--_colour);
+    border-right-color: var(--_colour);
+}
+
+.style-8.pill button:before,
+.style-8.pill button:after {
+    border-radius: 2rem 0;
+    width: 50%;
+    height: 50%;    
+}
+
+.style-8 button:hover:before,
+.style-8 button:hover:after,
+.style-8 button:focus:before,
+.style-8 button:focus:after {
+    opacity: 1;
+}
+
+.style-8 button:hover:before,
+.style-8 button:focus:before {
+    top: -.5rem;
+    left: -.5rem;
+}
+
+.style-8 button:hover:after,
+.style-8 button:focus:after {
+    bottom: -.5rem;
+    right: -.5rem;
+}
+
+.style-9 button {
+    position:relative;
+}
+
+.style-9 button.secondary,
+.style-9 button.tertiary,
+.style-9 button.neutral {
+    background:#efefef;
+}
+
+.style-9 button:before {
+    content:" ";
+    background:rgba(255,255,255,.4);
+    position: absolute;
+    inset: 0 100% 0 0;
+    opacity:0;
+    transition:all ease .3s;
+    border-radius: inherit;
+}
+
+.style-9 button:hover:before,
+.style-9 button:focus:before {
+    inset:0;
+    opacity: 1;
+}
+
+.style-10 button {
+    position:relative;
+    overflow: hidden;
+}
+
+.style-10 button:hover,
+.style-10 button:focus {
+    opacity: .8;
+}
+
+.style-10 button:before {
+    content:" ";
+    background:rgba(0,0,0,.2);
+    position: absolute;
+    top:0;
+    width:0;
+    aspect-ratio: 1;
+    left:50%;
+    transform:translateX(-50%) scale(1);
+    transition:all ease .3s;
+    border-radius: 100%;
+    z-index: -1;
+}
+
+.style-10 button:hover:before,
+.style-10 button:focus:before {
+    width:100%;
+    transform:scale(3);
+}
+
+.style-11 button {
+    box-shadow:inset 0 .1rem .5rem var(--_shadow-colour);
+}
+
+.style-11 button:hover {
+    box-shadow:inset 0 .2rem .75rem var(--_shadow-colour);
+}
+
+.style-11 button:focus {
+    outline: solid 2px var(--_highlight-colour);
+}
+
+.style-12 button {
+    position: relative;
+    overflow: visible;
+    opacity: 1;
+    margin-bottom:.25rem;
+}
+
+.style-12 button.secondary,
+.style-12 button.tertiary,
+.style-12 button.neutral {
+    background:#efefef;
+}
+
+.style-12 button:before {
+    content: " ";
+    position:absolute;
+    top:.25rem;
+    left:.25rem;
+    height:calc(100% + 4px);
+    width:calc(100% + 4px);
+    transition: all ease .3s;
+    background:var(--_shadow-colour);
+    border-radius: inherit;
+    z-index: -1;
+    transform:scale(1);
+}
+
+.style-12 button:hover {
+    background:var(--_highlight-colour);
+}
+
+.style-12 button.secondary:hover,
+.style-12 button.tertiary:hover,
+.style-12 button.neutral:hover {
+    background:#fff;
+}
+
+.style-12 button:hover:before {
+    top:.3rem;
+    left:.3rem;
+}
+
+.style-12 button:active {
+    margin-bottom:0;
+}
+
+.style-12 button:active:before {
+    transform:scale(1);
+    top:0;
+    left:0;
+}
+
+.style-13 button {
+    position:relative;
+    overflow: visible;
+    opacity: 1;
+}
+
+.style-13 button.secondary,
+.style-13 button.tertiary,
+.style-13 button.neutral {
+    background:#fff;
+}
+
+.style-13 button:before {
+    content:" ";
+    position:absolute;
+    inset:0;
+    transform:scale(1);
+    transition: all ease .3s;
+    border-radius: inherit;
+}
+
+.style-13 button:hover:before {
+    box-shadow: 0 0 .5rem var(--_highlight-colour);
+}
+
+.style-13 button:active:before {
+    animation:pulse 2s infinite;
+}
+
+.style-14 button {
+    position:relative;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.style-14 button.secondary,
+.style-14 button.tertiary,
+.style-14 button.neutral {
+    background:#eee;
+}
+
+.style-14 button:before,
+.style-14 button:after {
+    content: " ";
+    position:absolute;
+    height:100%;
+    transform:skew(-30deg) translateX(0);
+    pointer-events: none;
+    top:0;
+}
+
+.style-14 button:before {
+    width:3rem;
+    left:-5rem;
+    background: hsla(0, 100%, 100%, .7);
+}
+
+.style-14 button:after {
+    width:1rem;
+    left:-1.25rem;
+    background: hsla(0, 100%, 100%, .7);
+}
+
+.style-14 button:hover:before,
+.style-14 button:hover:after {
+    transform:skew(-30deg) translateX(20rem);
+    transition: all ease 1s;
+}
+
+@keyframes pulse {
+    0% {
+        transform:scale(.95);
+        box-shadow:0 0 0 0 var(--_highlight-colour);
+        opacity: 1;
+    }
+    70% {
+        transform:scale(1.05);
+        box-shadow: 0 0 1rem 1rem var(--_highlight-colour);
+        opacity: 0;
+    }
+    100% {
+        transform:scale(.95);
+        box-shadow: 0 0 0 0 var(--_highlight-colour);
+        opacity: 1;
+    }
+}
