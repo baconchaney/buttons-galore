@@ -6,6 +6,7 @@ window.addEventListener('load', () => {
     const buttonStyleEl = document.getElementById('style-select');
     const buttonShapeEl = document.querySelector('fieldset');
     const buttons = document.querySelectorAll('.btn');
+    const copyButton = document.getElementById('copy');
 
     // Colour pickers
     const positiveColourPicker = document.getElementById('positive-colour');
@@ -49,6 +50,12 @@ window.addEventListener('load', () => {
         printCss(button);
       }); 
     }
+    copyButton.addEventListener('click', () => {
+      if (codeWrapperEl) {
+        navigator.clipboard.writeText(codeWrapperEl.textContent);
+        alert('Styles copied');
+      }
+    });
 });
 
 function calcHSLValues(picker, colourType) {
