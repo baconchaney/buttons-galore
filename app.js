@@ -61,7 +61,7 @@ window.addEventListener('load', () => {
       if(codeWrapperEl) {
         var sheets = document.styleSheets, ret = [];
         el.matches = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector 
-            || el.msMatchesSelector || el.oMatchesSelector || `${el}:before`.matches || `${el}:after`.matches;
+            || el.msMatchesSelector || el.oMatchesSelector || el.matches(':before') || el.matches(':after');
         for (var i in sheets) {
             var rules = sheets[i].cssRules;
             for (var r in rules) {
