@@ -475,6 +475,7 @@ button:after {
 
 .style-12 button:active {
     margin-bottom:0;
+    margin-top:.25rem;
 }
 
 .style-12 button:active:before {
