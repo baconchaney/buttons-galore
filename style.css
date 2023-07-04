@@ -502,10 +502,11 @@ button:after {
     transform:scale(1);
     transition: all ease .3s;
     border-radius: inherit;
+    z-index: -1;
 }
 
 .style-13 button:hover:before {
-    box-shadow: 0 0 .5rem var(--_highlight-colour);
+    box-shadow: 0 0 1rem var(--_highlight-colour);
 }
 
 .style-13 button:active:before {
@@ -536,13 +537,13 @@ button:after {
 
 .style-14 button:before {
     width:3rem;
-    left:-5rem;
+    left:-6rem;
     background: hsla(0, 100%, 100%, .7);
 }
 
 .style-14 button:after {
     width:1rem;
-    left:-1.25rem;
+    left:-2.25rem;
     background: hsla(0, 100%, 100%, .7);
 }
 
@@ -559,13 +560,13 @@ button:after {
         opacity: 1;
     }
     70% {
-        transform:scale(1.05);
+        transform:scale(1);
         box-shadow: 0 0 1rem 1rem var(--_highlight-colour);
         opacity: 0;
     }
     100% {
         transform:scale(.95);
         box-shadow: 0 0 0 0 var(--_highlight-colour);
-        opacity: 1;
+        opacity: 0;
     }
 }
